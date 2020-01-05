@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: </title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'hello-world';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'strings';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="arithmetic">
+      <h2><a href="./">Crystal by Example</a>: Arithmetic</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Crystal has the full range of numeric types, which respond to mathematical operators as expected.</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Integers</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Floating-point values</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mf">1_f32</span> <span class="o">/</span> <span class="mi">4</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The boolean values</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Complex numbers</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="n">i</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Sugar for scientific notation,</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mf">1e10</span> <span class="o">%</span> <span class="mi">7</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Hexadecimal and big numbers</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mh">0x1000_0000_0000_0000_u64</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">require</span> <span class="s2">&quot;big&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>As well as numbers that scale as needed</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span><span class="o">.</span><span class="n">to_big_i</span> <span class="o">+</span> <span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>By default, over- and underflows raise an exception</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Raises an ArithmeticOverflow exception</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>However, you can get wrapped overflow behavior with &amp;-prefixed operators</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span> <span class="o">&amp;+</span> <span class="mi">1</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>All values, including all numbers, evaluate to true when used in a boolean context.</p>
+
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;truthy!&quot;</span> <span class="k">if</span> <span class="mi">0</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="strings">Strings</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/arithmetic">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('
+');
+          codeLines.push('puts 2 + 2
+');
+          codeLines.push('puts 1_f32 / 4
+');
+          codeLines.push('puts true && false
+');
+          codeLines.push('puts 1 + 1.i
+');
+          codeLines.push('puts 1e10 % 7
+');
+          codeLines.push('puts 0x1000_0000_0000_0000_u64
+');
+          codeLines.push('require "big"
+');
+          codeLines.push('UInt64::MAX.to_big_i + UInt64::MAX
+');
+          codeLines.push('UInt64::MAX + 1 # Raises an ArithmeticOverflow exception
+');
+          codeLines.push('UInt64::MAX &+ 1
+');
+          codeLines.push('puts "truthy!" if 0
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

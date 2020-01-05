@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: </title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'arithmetic';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="hello-world">
+      <h2><a href="./">Crystal by Example</a>: Hello World</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Our first program will print the classic &quot;Hello, World!&quot; message.</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here's the full source code.</p>
+
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>To run the program, put the code in <code>hello-world.cr</code> and use the <code>crystal</code> command.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>$ crystal hello-world.cr
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>Hello, World!
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Once you're done changing your program, you'll want to compile it to a binary. That's what the <code>crystal build</code> command is for.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>$ crystal build hello-world.cr
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>$ ls
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>hello-world     hello-world.cr
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>We can then execute the binary directly</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>$ ./hello-world
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span>Hello, World!
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="arithmetic">Arithmetic</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/hello-world">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('
+');
+          codeLines.push('puts "Hello, World!"
+');
+          codeLines.push('$ crystal hello-world.cr
+');
+          codeLines.push('Hello, World!
+');
+          codeLines.push('$ crystal build hello-world.cr
+');
+          codeLines.push('$ ls
+');
+          codeLines.push('hello-world     hello-world.cr
+');
+          codeLines.push('$ ./hello-world
+');
+          codeLines.push('Hello, World!
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

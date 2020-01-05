@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: </title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'strings';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="variables-and-constants">
+      <h2><a href="./">Crystal by Example</a>: Variables and Constants</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>To store a value for later, simply assign it to a name with the equals operator</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">some_var</span> <span class="o">=</span> <span class="s2">&quot;a value&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can specify the type of a value after a space-separated colon and before the assignment operator</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">another</span> <span class="p">:</span> <span class="nb">Float32</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>If the name of a value starts with a capital letter, that name represents a constant which can't be reassigned</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="no">CONST_VALUE</span> <span class="o">=</span> <span class="mf">123.456</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>By convention, all variables are in lower_snake_case, constants are in UPPER_SNAKE_CASE, while type names use PascalCase</p>
+
+          </td>
+          <td class="code empty">
+           
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/variables-and-constants">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('some_var = "a value"
+');
+          codeLines.push('another : Float32 = 3
+');
+          codeLines.push('CONST_VALUE = 123.456
+');
+          codeLines.push('
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

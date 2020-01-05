@@ -1,0 +1,17 @@
+name: crystal-by-example
+version: 0.1.0
+
+authors:
+  - Scott Boggs <scott@tams.tech>
+
+targets:
+  crystal-by-example:
+    main: src/crystal-by-example.cr
+
+crystal: 0.31.1
+
+license: MIT
+
+dependencies:
+  markd:
+    github: icyleaf/markd
