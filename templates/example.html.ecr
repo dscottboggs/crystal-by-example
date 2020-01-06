@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Crystal by Example: <% name %></title>
+    <title>Crystal by Example: <%= name %></title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="<%= id %>">
-      <h2><a href="./">Crystal by Example</a>: <%= name %></h2>
+      <h2><a href="index.html">Crystal by Example</a>: <%= name %></h2>
       <% segments.each do |segment_group| %>
       <table>
         <% segment_group.each do |segment| %>
@@ -36,6 +36,9 @@
         <% end %>
       </table>
       <% end %>
+      <a href="<%= PLAYGROUND_BASE_URL %>/#/r/<%= playground_id %>" target="blank">
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      </a>
       <% if next_example? %>
       <p class="next">
         Next example: <a href="<%= next_example.id %>"><%= next_example.name %></a>.

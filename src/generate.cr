@@ -3,14 +3,15 @@ require "file_utils"
 require "digest/sha1"
 require "ecr"
 
-SITE_DIR       = Path[Dir.current, "public"]
-CACHE_DIR      = Path[Dir.tempdir, "crystal-by-example.cache"]
-PYGMENTIZE_BIN = Path[Dir.current, "vendor", "pygments", "build", "bin", "pygmentize"]
-TEMPLATE_DIR   = Path[Dir.current, "templates"]
-EXAMPLE_DIR    = Path[__DIR__, "examples"]
-DOCS_PATTERN   = /^\s*#\s/
-DASH_PATTERN   = /\-+/
-PYTHON_PATH    = "/usr/lib/python3.8/site-packages:#{Dir.current}/vendor/pygments/build/lib/python3.8/site-packages"
+SITE_DIR            = Path[Dir.current, "public"]
+CACHE_DIR           = Path[Dir.tempdir, "crystal-by-example.cache"]
+PYGMENTIZE_BIN      = Path[Dir.current, "vendor", "pygments", "build", "bin", "pygmentize"]
+TEMPLATE_DIR        = Path[Dir.current, "templates"]
+EXAMPLE_DIR         = Path[__DIR__, "examples"]
+DOCS_PATTERN        = /^\s*#\s/
+DASH_PATTERN        = /\-+/
+PYTHON_PATH         = "/usr/lib/python3.8/site-packages:#{Dir.current}/vendor/pygments/build/lib/python3.8/site-packages"
+PLAYGROUND_BASE_URL = ENV.fetch "PLAYGROUND_URL", default: "https://carc.in"
 include FileUtils
 
 def verbose?
@@ -91,6 +92,7 @@ class Example
     crystal_code_hash : String,
     segments : Array(Array(Segment)) = [] of Array(Segment)
   property! previous_example : Example, next_example : Example
+  property playground_id : String
 
   include Renderable
   template "example"
@@ -104,7 +106,10 @@ class Example
       .gsub DASH_PATTERN, '-'
     @crystal_code = File.read EXAMPLE_DIR / id / (id + ".cr")
     @crystal_code_hash = ""
-    File.open(EXAMPLE_DIR / id / (id + ".hash")) { |file| @crystal_code_hash = (file.gets || raise "empty hash file") }
+    @crystal_code_hash, @playground_id = File.open(EXAMPLE_DIR / id / (id + ".hash")) do |file|
+      {(file.gets || raise "empty hash file"),
+       (file.gets || raise "no playground link ID found in hash file")}
+    end
     raise "empty/invalid data in hash file" if @crystal_code_hash.empty?
     Dir.each_child (EXAMPLE_DIR / id).to_s do |file|
       unless file.ends_with?(".hash") || File.directory? file
@@ -139,21 +144,6 @@ struct Examples
   end
 end
 
-def parse_hash_file(source_path : String) : Tuple(String, String)
-  File.open(source_path) { |file| {file.gets, file.gets} }
-end
-
-def reset_url_hash_file(code_hash, code, source_path)
-  puts "sending request to carc.in" if verbose?
-  HTTP::Client.post "carc.in/run_requests", body: {langague: "crystal", code: code} do |response|
-    recvd = response.body.try(&.gets_to_end) || begin
-      pp! response
-      raise "received invalid response body"
-    end
-    File.write source_path, recvd + '\n' + code_hash + '\n'
-  end
-end
-
 def parse_segs(source_path : String) : {Array(Segment), String}
   segments = [] of Segment
   last_seen = :none
@@ -174,13 +164,14 @@ def parse_segs(source_path : String) : {Array(Segment), String}
         segments[-1].docs = segments[-1].docs + '\n' + trimmed
       end
       debug "DOCS: " + line
-      last_seen = :docs
+      last_seen = "docs"
     elsif match_code
       if new_code
         segments << Segment.new docs: "", code: line
       else
         segments[-1].code = segments[-1].code + '\n' + line
       end
+      last_seen = "code"
     end
   end
   segments.last.code_leading = false
