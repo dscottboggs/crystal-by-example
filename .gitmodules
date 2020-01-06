@@ -1,3 +1,0 @@
-[submodule "vendor/pygments"]
-	path = vendor/pygments
-	url = https://github.com/pygments/pygments.git
