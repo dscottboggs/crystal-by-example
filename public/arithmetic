@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Crystal by Example: </title>
+    <title>Crystal by Example: Arithmetic</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,23 +21,14 @@
   </script>
   <body>
     <div class="example" id="arithmetic">
-      <h2><a href="./">Crystal by Example</a>: Arithmetic</h2>
+      <h2><a href="index.html">Crystal by Example</a>: Arithmetic</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Crystal has the full range of numeric types, which respond to mathematical operators as expected.</p>
-
-          </td>
-          <td class="code empty leading">
-           
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Integers</p>
+            <p>Crystal has the full range of numeric types, which respond to mathematical operators as expected.
+Integers</p>
 
           </td>
           <td class="code leading">
@@ -77,7 +68,8 @@
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="n">i</span>
+           <div class="highlight"><pre><span></span><span class="k">require</span> <span class="s2">&quot;complex&quot;</span>
+<span class="nb">puts</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="n">i</span>
 </pre></div>
 
           </td>
@@ -109,7 +101,8 @@
         
         <tr>
           <td class="docs">
-            
+            <p>As well as numbers that scale as needed</p>
+
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span><span class="k">require</span> <span class="s2">&quot;big&quot;</span>
@@ -120,8 +113,7 @@
         
         <tr>
           <td class="docs">
-            <p>As well as numbers that scale as needed</p>
-
+            
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span><span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span><span class="o">.</span><span class="n">to_big_i</span> <span class="o">+</span> <span class="nb">UInt64</span><span class="o">::</span><span class="no">MAX</span>
@@ -168,6 +160,9 @@
         
       </table>
       
+      <a href="https://carc.in/#/r/8clk" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
       
       <p class="next">
         Next example: <a href="strings">Strings</a>.
@@ -179,15 +174,14 @@
     </div>
     <script>
       var codeLines = [];
-                codeLines.push('
-');
-          codeLines.push('puts 2 + 2
+                codeLines.push('puts 2 + 2
 ');
           codeLines.push('puts 1_f32 / 4
 ');
           codeLines.push('puts true && false
 ');
-          codeLines.push('puts 1 + 1.i
+          codeLines.push('require "complex"
+puts 1 + 1.i
 ');
           codeLines.push('puts 1e10 % 7
 ');

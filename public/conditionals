@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Conditionals</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'variables-and-constants';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="conditionals">
+      <h2><a href="index.html">Crystal by Example</a>: Conditionals</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Crystal provides the standard if/else branching mechanism</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">&quot;7 is even&quot;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">&quot;7 is odd&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Branches may return a value as well</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;7 is &quot;</span> <span class="o">+</span> <span class="k">if</span> <span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+                 <span class="s2">&quot;even&quot;</span>
+               <span class="k">else</span>
+                 <span class="s2">&quot;odd&quot;</span>
+               <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>There is also the unless keyword, meaning &quot;if not&quot;</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">unless</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">&quot;8 is not divisible by 5&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>branch expressions can also be put after a one-line expression</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;8 is divisible by 4&quot;</span> <span class="k">if</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Assignment can be done inside an if expression.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;is negative&quot;</span>
+<span class="k">elsif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;has 1 digit&quot;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;has multiple digits&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note the use of the elsif keyword for handling more than 2 cases.</p>
+
+          </td>
+          <td class="code empty">
+           
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8clj" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/conditionals">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('if 7 % 2 == 0
+  puts "7 is even"
+else
+  puts "7 is odd"
+end
+');
+          codeLines.push('puts "7 is " + if 7 % 2 == 0
+                 "even"
+               else
+                 "odd"
+               end
+');
+          codeLines.push('unless 8 % 5 == 0
+  puts "8 is not divisible by 5"
+end
+');
+          codeLines.push('puts "8 is divisible by 4" if 8 % 4 == 0
+');
+          codeLines.push('if (num = 9) < 0
+  puts num, "is negative"
+elsif num < 10
+  puts num, "has 1 digit"
+else
+  puts num, "has multiple digits"
+end
+');
+          codeLines.push('
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

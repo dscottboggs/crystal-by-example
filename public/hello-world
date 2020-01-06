@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Crystal by Example: </title>
+    <title>Crystal by Example: Hello World</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -17,23 +17,14 @@
   </script>
   <body>
     <div class="example" id="hello-world">
-      <h2><a href="./">Crystal by Example</a>: Hello World</h2>
+      <h2><a href="index.html">Crystal by Example</a>: Hello World</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Our first program will print the classic &quot;Hello, World!&quot; message.</p>
-
-          </td>
-          <td class="code empty leading">
-           
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here's the full source code.</p>
+            <p>Our first program will print the classic &quot;Hello, World!&quot; message.
+Here's the full source code.</p>
 
           </td>
           <td class="code">
@@ -54,17 +45,7 @@
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span>$ crystal hello-world.cr
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>Hello, World!
+Hello, World!
 </pre></div>
 
           </td>
@@ -77,28 +58,8 @@
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span>$ crystal build hello-world.cr
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>$ ls
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>hello-world     hello-world.cr
+$ ls
+hello-world     hello-world.cr
 </pre></div>
 
           </td>
@@ -109,19 +70,9 @@
             <p>We can then execute the binary directly</p>
 
           </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>$ ./hello-world
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code">
-           <div class="highlight"><pre><span></span>Hello, World!
+           <div class="highlight"><pre><span></span>$ ./hello-world
+Hello, World!
 </pre></div>
 
           </td>
@@ -129,6 +80,9 @@
         
       </table>
       
+      <a href="https://carc.in/#/r/8cla" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
       
       <p class="next">
         Next example: <a href="arithmetic">Arithmetic</a>.
@@ -140,23 +94,17 @@
     </div>
     <script>
       var codeLines = [];
-                codeLines.push('
-');
-          codeLines.push('puts "Hello, World!"
+                codeLines.push('puts "Hello, World!"
 ');
           codeLines.push('$ crystal hello-world.cr
-');
-          codeLines.push('Hello, World!
+Hello, World!
 ');
           codeLines.push('$ crystal build hello-world.cr
-');
-          codeLines.push('$ ls
-');
-          codeLines.push('hello-world     hello-world.cr
+$ ls
+hello-world     hello-world.cr
 ');
           codeLines.push('$ ./hello-world
-');
-          codeLines.push('Hello, World!
+Hello, World!
 ');
 
     </script>

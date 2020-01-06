@@ -6,6 +6,7 @@ puts 1_f32 / 4
 # The boolean values
 puts true && false
 # Complex numbers
+require "complex"
 puts 1 + 1.i
 # Sugar for scientific notation,
 puts 1e10 % 7

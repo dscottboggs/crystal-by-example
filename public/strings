@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Crystal by Example: </title>
+    <title>Crystal by Example: Strings</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="strings">
-      <h2><a href="./">Crystal by Example</a>: Strings</h2>
+      <h2><a href="index.html">Crystal by Example</a>: Strings</h2>
       
       <table>
         
@@ -68,6 +68,7 @@
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;embedded data&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;some text with </span><span class="si">#{</span><span class="n">data</span><span class="si">}</span><span class="s2">.&quot;</span>
 </pre></div>
 
           </td>
@@ -79,29 +80,9 @@
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;some text with </span><span class="si">#{</span><span class="n">data</span><span class="si">}</span><span class="s2">.&quot;</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
            <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;some \</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>        <span class="n">very</span> <span class="n">long</span> <span class="p">\</span>
+<span class="s2">        very long \</span>
+<span class="s2">        text&quot;</span>
 </pre></div>
 
           </td>
@@ -113,7 +94,7 @@
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span>        <span class="n">text</span><span class="s2">&quot;</span>
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="sx">%[a &quot;string&quot; with &quot;lots&quot; of quotes inside]</span>
 </pre></div>
 
           </td>
@@ -124,15 +105,16 @@
             <p>Curly, square, and angle braces can be used in this way, as well as parentheses.</p>
 
           </td>
-          <td class="code">
-           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="sx">%[a &quot;string&quot; with &quot;lots&quot; of quotes inside]</span>
-</pre></div>
-
+          <td class="code empty">
+           
           </td>
         </tr>
         
       </table>
       
+      <a href="https://carc.in/#/r/8clh" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
       
       <p class="next">
         Next example: <a href="variables-and-constants">Variables and Constants</a>.
@@ -151,16 +133,15 @@
           codeLines.push('puts "some four-digit number %04d" % 123
 ');
           codeLines.push('data = "embedded data"
-');
-          codeLines.push('puts "some text with #{data}."
+puts "some text with #{data}."
 ');
           codeLines.push('puts "some \
-');
-          codeLines.push('        very long \
-');
-          codeLines.push('        text"
+        very long \
+        text"
 ');
           codeLines.push('puts %[a "string" with "lots" of 'quotes' inside]
+');
+          codeLines.push('
 ');
 
     </script>

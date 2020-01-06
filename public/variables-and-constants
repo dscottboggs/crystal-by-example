@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Crystal by Example: </title>
+    <title>Crystal by Example: Variables and Constants</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -13,11 +13,15 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+            window.location.href = 'conditionals';
+          }
+          
       }
   </script>
   <body>
     <div class="example" id="variables-and-constants">
-      <h2><a href="./">Crystal by Example</a>: Variables and Constants</h2>
+      <h2><a href="index.html">Crystal by Example</a>: Variables and Constants</h2>
       
       <table>
         
@@ -69,6 +73,13 @@
         
       </table>
       
+      <a href="https://carc.in/#/r/8cli" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="conditionals">Conditionals</a>.
+      </p>
       
       <p class="footer">
         by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/variables-and-constants">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
