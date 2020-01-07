@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Blocks</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'basic-loops';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'blocks-with-arguments';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="blocks">
+      <h2><a href="index.html">Crystal by Example</a>: Blocks</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Methods can accept a block of code that is executed with the <code>yield</code> keyword. For example:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twice</span>
+  <span class="k">yield</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hello!&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To define a method that receives a block, simply use yield inside it and the compiler will know. You can make this more evident by declaring a dummy block argument named <code>&amp;</code>.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="o">&amp;</span><span class="p">)</span>
+  <span class="k">yield</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To invoke a method and pass a block, you use <code>do...end</code> or <code>{ ... }</code>. All of these are equivalent</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span><span class="p">()</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hello!&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hello!&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;Hello!&quot;</span> <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The difference between using <code>do...end</code> and <code>{ ... }</code> is that <code>do...end</code> binds to the left-most call, while <code>{ ... }</code> binds to the right-most call. For example
+this...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">foo</span> <span class="n">bar</span> <span class="k">do</span>
+  <span class="n">something</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...is the same as</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">something</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>While this...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">foo</span> <span class="n">bar</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...is the same as</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">(</span><span class="n">bar</span> <span class="p">{</span> <span class="n">something</span> <span class="p">})</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The reason for this is to allow creating Domain Specific Languages (DSLs) using <code>do...end</code> to have them be read as plain English.</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>For example, this</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">open</span> <span class="n">file</span> <span class="s2">&quot;foo.cr&quot;</span> <span class="k">do</span>
+  <span class="n">something</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>is the same as this</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;foo.cr&quot;</span><span class="p">))</span> <span class="k">do</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <hr />
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The standard-library's <code>loop</code> statement that we learned about in the previous example is as simple as this</p>
+
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">true</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8cms" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="blocks-with-arguments">Blocks with Arguments</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/blocks">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('def twice
+  yield
+  yield
+end
+');
+          codeLines.push('twice do
+  puts "Hello!"
+end
+');
+          codeLines.push('def twice(&)
+  yield
+  yield
+end
+');
+          codeLines.push('twice() do
+  puts "Hello!"
+end
+');
+          codeLines.push('twice do
+  puts "Hello!"
+end
+');
+          codeLines.push('twice { puts "Hello!" }
+');
+          codeLines.push('foo bar do
+  something
+end
+');
+          codeLines.push('foo(bar) do
+  something
+end
+');
+          codeLines.push('foo bar { something }
+');
+          codeLines.push('foo(bar { something })
+');
+          codeLines.push('
+');
+          codeLines.push('open file "foo.cr" do
+  something
+end
+');
+          codeLines.push('open(file("foo.cr")) do
+end
+');
+          codeLines.push('
+');
+          codeLines.push('while true
+  yield
+end
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

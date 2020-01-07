@@ -3,4 +3,8 @@ Arithmetic
 Strings
 Variables and Constants
 Conditionals
-
+Methods
+Case-When
+Basic Loops
+Blocks
+Blocks with Arguments

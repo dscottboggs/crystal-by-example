@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Methods</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'conditionals';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'case-when';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="methods">
+      <h2><a href="index.html">Crystal by Example</a>: Methods</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Method</em>s (sometimes called functions) are reusable blocks of code. Methods may optionally accept positional or named parameters, and may return one or more values.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+  <span class="k">return</span> <span class="s2">&quot;Hey, &quot;</span> <span class="o">+</span> <span class="n">person</span> <span class="o">+</span> <span class="o">!</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Once a method is defined, it can be <em>call</em>ed</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="n">greeting</span> <span class="s2">&quot;Crystal programmer&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The <code>return</code> keyword is optional -- the last line of the method will be returned if the <code>return</code> keyword is not encountered earlier. Arguments can receive default values</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">person</span> <span class="o">=</span> <span class="s2">&quot;you&quot;</span><span class="p">)</span>
+  <span class="s2">&quot;Hey, </span><span class="si">#{</span><span class="n">person</span><span class="si">}</span><span class="s2">!&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="n">greeting</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>An argument may also optionally have a <em>type-restriction</em> and an <em>external name</em>. If a type-restriction is present, the program will refuse to compile (and hence run at all) if the restriction is violated. If an external name is present, it may be used to identify the argument at the call-site.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">for</span> <span class="n">person</span> <span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;you&quot;</span><span class="p">)</span>
+  <span class="s2">&quot;Hey, </span><span class="si">#{</span><span class="n">person</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>This code would not compile</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="n">greeting</span> <span class="ss">for</span><span class="p">:</span> <span class="s2">&quot;Arnold&quot;</span>
+<span class="si">{%</span> <span class="n">skip</span> <span class="si">%}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="ss">for</span><span class="p">:</span> <span class="mo">0o7</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Please note that later definitions of a method override previous definitions: only the last <code>def greeting</code> counts.</p>
+
+          </td>
+          <td class="code empty">
+           
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8cmp" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="case-when">Case-When</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/methods">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('def greeting(person)
+  return "Hey, " + person + '!'
+end
+');
+          codeLines.push('puts greeting "Crystal programmer"
+');
+          codeLines.push('def greeting(person = "you")
+  "Hey, #{person}!"
+end
+');
+          codeLines.push('puts greeting
+');
+          codeLines.push('def greeting(for person : String = "you")
+  "Hey, #{person}"
+end
+');
+          codeLines.push('puts greeting for: "Arnold"
+{% skip %}
+');
+          codeLines.push('greeting for: 0o7
+');
+          codeLines.push('
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+            window.location.href = 'methods';
+          }
+          
       }
   </script>
   <body>
@@ -112,6 +116,10 @@
       <a href="https://carc.in/#/r/8clj" target="blank">
         <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
+      
+      <p class="next">
+        Next example: <a href="methods">Methods</a>.
+      </p>
       
       <p class="footer">
         by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/conditionals">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>

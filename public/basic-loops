@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Basic Loops</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'case-when';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'blocks';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="basic-loops">
+      <h2><a href="index.html">Crystal by Example</a>: Basic Loops</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Crystal offers the classic <code>while</code> loop...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="n">x</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...which honors the the classic <code>break</code> keyword; as well as the <code>next</code> keyword, which skips the rest of the current loop iteration</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">File</span><span class="o">.</span><span class="n">write</span> <span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;some</span><span class="se">\n</span><span class="s2">5</span><span class="se">\n</span><span class="s2">lines</span><span class="se">\n</span><span class="s2">of</span><span class="se">\n</span><span class="s2">text</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="nb">File</span><span class="o">.</span><span class="n">open</span> <span class="s2">&quot;example&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+  <span class="n">number</span> <span class="o">=</span> <span class="nb">Float64</span><span class="o">::</span><span class="no">INFINITY</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">while</span> <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">gets</span><span class="p">(</span><span class="ss">chomp</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">to_i?</span> <span class="o">||</span> <span class="n">line</span><span class="o">.</span><span class="n">to_f?</span>
+      <span class="n">number</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">to_f</span>
+      <span class="k">break</span>
+    <span class="k">end</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note that <code>count</code> should only be 1 because the loop stops as soon as it encounters a numeric value</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="nb">puts</span> <span class="n">number</span><span class="p">,</span> <span class="n">count</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>There is also a simple <code>loop</code> statement</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">loop</span> <span class="k">do</span>
+  <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+  <span class="k">next</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">even?</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="n">x</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The <code>while</code>-loop's logic can be inverted using an <code>until</code> loop</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;-x&quot;</span><span class="p">,</span> <span class="s2">&quot;param&quot;</span><span class="o">]</span>
+<span class="k">until</span> <span class="n">args</span><span class="o">.</span><span class="n">empty?</span>
+  <span class="n">arg</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">shift</span>
+  <span class="n">do_something_with</span> <span class="n">arg</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>One can also loop a specific number of times</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="no">STDOUT</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;Hip hip!&quot;</span>
+  <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;Hooray!&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Or on specific values</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">.</span><span class="n">to</span> <span class="mi">16</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2"> is between 8 and 16&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The last two examples use the block argument syntax, which will be our next topic and a topic we will cover again later</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note the lack of a <code>for</code>-loop construct. We'll come back to that.</p>
+
+          </td>
+          <td class="code empty">
+           
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8cmr" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="blocks">Blocks</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/basic-loops">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('x = 0
+while (x += 1) <= 10
+  puts x
+end
+');
+          codeLines.push('File.write "example", "some\n5\nlines\nof\ntext\n"
+File.open "example" do |file|
+  number = Float64::INFINITY
+  count = 0
+  while line = file.gets(chomp: true)
+    if n = line.to_i? || line.to_f?
+      number = n.to_f
+      break
+    end
+    count += 1
+  end
+');
+          codeLines.push('  puts number, count
+end
+');
+          codeLines.push('loop do
+  x -= 1
+  next if x.even?
+  break if x <= 0
+  puts x
+end
+');
+          codeLines.push('args = ["cmd", "-o", "-x", "param"]
+until args.empty?
+  arg = args.shift
+  do_something_with arg
+end
+');
+          codeLines.push('3.times do
+  STDOUT.puts "Hip hip!"
+  STDERR.puts "Hooray!"
+end
+');
+          codeLines.push('8.to 16 do |i|
+  puts "#{i} is between 8 and 16"
+end
+');
+          codeLines.push('
+');
+          codeLines.push('
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

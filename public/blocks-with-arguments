@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Blocks with Arguments</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'blocks';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="blocks-with-arguments">
+      <h2><a href="index.html">Crystal by Example</a>: Blocks with Arguments</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>The yield expression is similar to a call and can receive arguments. For example:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twice</span>
+  <span class="k">yield</span> <span class="mi">1</span>
+  <span class="k">yield</span> <span class="mi">2</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Got </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A curly braces notation is also available:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;Got </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can yield many values:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">many</span>
+  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">many</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A block can specify less than the arguments yielded:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">many</span>
+  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">many</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>It's an error at compile-time specifying more block arguments than those yielded:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twice</span>
+  <span class="k">yield</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="c1"># Error: too many block arguments</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Each block variable has the type of every yield expression in that position. For example:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some</span>
+  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span>
+  <span class="k">yield</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span>
+  <span class="k">yield</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="n">some</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8cmt" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/blocks-with-arguments">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('def twice
+  yield 1
+  yield 2
+end
+');
+          codeLines.push('twice do |i|
+  puts "Got #{i}"
+end
+');
+          codeLines.push('twice { |i| puts "Got #{i}" }
+');
+          codeLines.push('def many
+  yield 1, 2, 3
+end
+');
+          codeLines.push('many do |x, y, z|
+  puts x + y + z
+end
+');
+          codeLines.push('def many
+  yield 1, 2, 3
+end
+');
+          codeLines.push('many do |x, y|
+  puts x + y
+end
+');
+          codeLines.push('def twice
+  yield
+  yield
+end
+');
+          codeLines.push('twice do |i| # Error: too many block arguments
+end
+');
+          codeLines.push('def some
+  yield 1, 'a'
+  yield true, "hello"
+  yield 2, nil
+end
+');
+          codeLines.push('some do |first, second|
+  puts typeof(first)
+  puts typeof(second)
+end
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>
