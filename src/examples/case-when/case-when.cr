@@ -13,7 +13,7 @@ else           puts "two-digit number"
 end
 
 # Case statements compare based on the `===` operator, which idiomatically is a "match" operator in Crystal. Ranges "match" any of their members.
-puts 2 === 1..3
+pp! (1..3 === 2)
 
 # Case statements can also be used with methods other than the standard `===` match operator.
 require "http"
