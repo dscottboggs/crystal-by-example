@@ -212,8 +212,10 @@ this...</p>
 
           </td>
           <td class="code">
-           <div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">true</span>
-  <span class="k">yield</span>
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loop</span>
+  <span class="k">while</span> <span class="kc">true</span>
+    <span class="k">yield</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -222,8 +224,8 @@ this...</p>
         
       </table>
       
-      <a href="https://carc.in/#/r/8cms" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdj" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -283,8 +285,10 @@ end
 ');
           codeLines.push('
 ');
-          codeLines.push('while true
-  yield
+          codeLines.push('def loop
+  while true
+    yield
+  end
 end
 ');
 

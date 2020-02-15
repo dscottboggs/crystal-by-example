@@ -5,12 +5,11 @@ require "ecr"
 
 SITE_DIR            = Path[Dir.current, "public"]
 CACHE_DIR           = Path[Dir.tempdir, "crystal-by-example.cache"]
-PYGMENTIZE_BIN      = Path[Dir.current, "vendor", "pygments", "build", "bin", "pygmentize"]
 TEMPLATE_DIR        = Path[Dir.current, "templates"]
 EXAMPLE_DIR         = Path[__DIR__, "examples"]
 DOCS_PATTERN        = /^\s*#\s/
 DASH_PATTERN        = /\-+/
-PYTHON_PATH         = "/usr/lib/python3.8/site-packages:#{Dir.current}/vendor/pygments/build/lib/python3.8/site-packages"
+PYTHON_PATH         = "/usr/lib/python3.8/site-packages"
 PLAYGROUND_BASE_URL = ENV.fetch "PLAYGROUND_URL", default: "https://carc.in"
 include FileUtils
 

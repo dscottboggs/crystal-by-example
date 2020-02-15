@@ -1,6 +1,6 @@
 # Strings are immutable collections of UTF-8 codepoints.
 puts "some text"
-# They can be added together with other strings
+# They can be concatenated with other strings using the plus operator
 puts "some" + " text"
 # Formatted with the percent/modulus operator
 puts "some four-digit number %04d" % 123

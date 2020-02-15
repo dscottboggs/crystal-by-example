@@ -94,7 +94,58 @@
         
         <tr>
           <td class="docs">
-            <p>A block can specify less than the arguments yielded:</p>
+            <p>Each block variable has the type of every yield expression in that position. For example:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some</span>
+  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span>
+  <span class="k">yield</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span>
+  <span class="k">yield</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">some</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>This means that you must determine the type of a value at runtime before calling a method on it,
+if all yielded types don't implement the method.</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <hr />
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A block can specify less than the arguments yielded...</p>
 
           </td>
           <td class="code leading">
@@ -121,11 +172,11 @@
         
         <tr>
           <td class="docs">
-            <p>It's an error at compile-time specifying more block arguments than those yielded:</p>
+            <p>...but it's an error at compile-time specifying more block arguments than those yielded:</p>
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">twice</span>
+           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_times</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
 <span class="k">end</span>
@@ -139,24 +190,7 @@
             
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="n">twice</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="c1"># Error: too many block arguments</span>
-<span class="k">end</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Each block variable has the type of every yield expression in that position. For example:</p>
-
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some</span>
-  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span>
-  <span class="k">yield</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span>
-  <span class="k">yield</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="k">end</span>
+           <div class="highlight"><pre><span></span><span class="si">{%</span> <span class="n">skip_file</span> <span class="si">%}</span>
 </pre></div>
 
           </td>
@@ -167,9 +201,7 @@
             
           </td>
           <td class="code">
-           <div class="highlight"><pre><span></span><span class="n">some</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="o">|</span>
-  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>
+           <div class="highlight"><pre><span></span><span class="n">two_times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="c1"># Error: too many block arguments</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -178,8 +210,8 @@
         
       </table>
       
-      <a href="https://carc.in/#/r/8cmt" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdn" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -211,22 +243,6 @@ end
   puts x + y + z
 end
 ');
-          codeLines.push('def many
-  yield 1, 2, 3
-end
-');
-          codeLines.push('many do |x, y|
-  puts x + y
-end
-');
-          codeLines.push('def twice
-  yield
-  yield
-end
-');
-          codeLines.push('twice do |i| # Error: too many block arguments
-end
-');
           codeLines.push('def some
   yield 1, 'a'
   yield true, "hello"
@@ -236,6 +252,28 @@ end
           codeLines.push('some do |first, second|
   puts typeof(first)
   puts typeof(second)
+end
+');
+          codeLines.push('
+');
+          codeLines.push('
+');
+          codeLines.push('def many
+  yield 1, 2, 3
+end
+');
+          codeLines.push('many do |x, y|
+  puts x + y
+end
+');
+          codeLines.push('def two_times
+  yield
+  yield
+end
+');
+          codeLines.push('{% skip_file %}
+');
+          codeLines.push('two_times do |i| # Error: too many block arguments
 end
 ');
 

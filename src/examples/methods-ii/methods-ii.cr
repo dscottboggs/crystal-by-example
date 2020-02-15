@@ -20,13 +20,14 @@ class Person
   end
 
   bob = Person.new "Bob", "Smith"
+
   # Once a method is `def`ined, it can be invoked (or "called") with...
-  bob.have_birthday
+  bob.have_birthday()
   # or without parentheses
   bob.have_birthday
   puts bob.age
 
-  # lets make bob an adult.
+  # lets make Bob an adult.
   20.times { bob.have_birthday }
 
   # Instance variables can be declared at any part of the top-level of a class.

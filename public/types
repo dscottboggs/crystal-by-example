@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+            window.location.href = 'range';
+          }
+          
       }
   </script>
   <body>
@@ -23,7 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>We've seen that variable assignment is as simple as giving a name to a piece of data</p>
+            <p>We've seen that variable assignment is as simple as giving a name to a piece
+of data</p>
 
           </td>
           <td class="code leading">
@@ -37,7 +42,8 @@
         
         <tr>
           <td class="docs">
-            <p>This <em>looks</em> a lot like the sort of code we might write in a dynamic language like Ruby, Python, or JavaScript. However, looks can be decieving</p>
+            <p>This <em>looks</em> a lot like the sort of code we might write in a dynamic language
+like Ruby, Python, or JavaScript. However, looks can be decieving</p>
 
           </td>
           <td class="code leading">
@@ -49,8 +55,9 @@
         
         <tr>
           <td class="docs">
-            <p>Types aren't dynamic in Crystal. The exact type of every chunk of data used by your application <strong>MUST</strong> be known at compile-time.
-Often, as in the case of our <code>numbers</code> example, this doesn't matter.</p>
+            <p>Types aren't dynamic in Crystal. The exact type of every chunk of data used
+by your application <strong>MUST</strong> be known at compile-time. Often, as in the case
+of our <code>numbers</code> example, this doesn't matter.</p>
 
           </td>
           <td class="code leading">
@@ -62,8 +69,12 @@ Often, as in the case of our <code>numbers</code> example, this doesn't matter.<
         
         <tr>
           <td class="docs">
-            <p>Since all of the types in the numbers array (<code>Int32</code> and <code>Float64</code>) can be added together with the <code>+</code> operator, the <code>sum</code> method can be used without any shenanigans. There are restrictions on this, however, that set Crystal apart as a safer and more performant alternative to its more dynamic cousins
-Not only will this example fail, you cannot begin to run your program if theres any chance this could happen</p>
+            <p>Since all of the types in the numbers array (<code>Int32</code> and <code>Float64</code>) can be
+added together with the <code>+</code> operator, the <code>sum</code> method can be used without
+any shenanigans. There are restrictions on this, however, that set Crystal
+apart as a safer and more performant alternative to its more dynamic cousins.
+Not only will this example fail, you cannot begin to run your program if
+theres any chance this could happen</p>
 
           </td>
           <td class="code leading">
@@ -138,9 +149,13 @@ The first way is to convert the string <code>&quot;4&quot;</code> to an integer,
         
       </table>
       
-      <a href="https://carc.in/#/r/8dr0" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdr" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
+      
+      <p class="next">
+        Next example: <a href="range">Range</a>.
+      </p>
       
       <p class="footer">
         by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/types">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>

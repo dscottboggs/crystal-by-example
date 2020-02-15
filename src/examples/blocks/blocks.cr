@@ -56,6 +56,8 @@ end
 # -----
 
 # The standard-library's `loop` statement that we learned about in the previous example is as simple as this
-while true
-  yield
+def loop
+  while true
+    yield
+  end
 end

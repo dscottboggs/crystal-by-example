@@ -1,4 +1,5 @@
 # Crystal has the full range of numeric types, which respond to mathematical operators as expected.
+
 # Integers
 puts 2 + 2
 # Floating-point values

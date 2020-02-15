@@ -1,5 +1,8 @@
-# Just about every modern programming language has some sort of construct for storing a list, or *array*, of data.
-# In crystal, this usually takes the form of the fixed-size `Array` generic type. A *generic* type is a type that can work with a bunch of different types of data, as long as that data implements a certain interface.
+# Just about every modern programming language has some sort of construct for
+# storing a list, or *array*, of data. In crystal, this usually takes the form
+# of the dynamically resizable `Array` generic type. A *generic* type is a
+# type that can work with a bunch of different types of data, as long as that
+# data implements a certain interface.
 some_array = [1, 2, 3]
 array_of_strings = ["a", "list", "of", "strings"]
 

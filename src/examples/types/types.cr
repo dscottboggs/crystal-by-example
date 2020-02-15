@@ -1,17 +1,24 @@
-# We've seen that variable assignment is as simple as giving a name to a piece of data
+# We've seen that variable assignment is as simple as giving a name to a piece
+# of data
 five = 5
 word = "crystal"
 numbers = [1, 2, 3, 4.0]
 
-# This *looks* a lot like the sort of code we might write in a dynamic language like Ruby, Python, or JavaScript. However, looks can be decieving
+# This *looks* a lot like the sort of code we might write in a dynamic language
+# like Ruby, Python, or JavaScript. However, looks can be decieving
 puts typeof(five, word, numbers)
 
-# Types aren't dynamic in Crystal. The exact type of every chunk of data used by your application **MUST** be known at compile-time.
-# Often, as in the case of our `numbers` example, this doesn't matter.
+# Types aren't dynamic in Crystal. The exact type of every chunk of data used
+# by your application **MUST** be known at compile-time. Often, as in the case
+# of our `numbers` example, this doesn't matter.
 puts numbers.sum
 
-# Since all of the types in the numbers array (`Int32` and `Float64`) can be added together with the `+` operator, the `sum` method can be used without any shenanigans. There are restrictions on this, however, that set Crystal apart as a safer and more performant alternative to its more dynamic cousins
-# Not only will this example fail, you cannot begin to run your program if theres any chance this could happen
+# Since all of the types in the numbers array (`Int32` and `Float64`) can be
+# added together with the `+` operator, the `sum` method can be used without
+# any shenanigans. There are restrictions on this, however, that set Crystal
+# apart as a safer and more performant alternative to its more dynamic cousins.
+# Not only will this example fail, you cannot begin to run your program if
+# theres any chance this could happen
 numbers << "not a number"
 
 # Since numbers is an array which was originally declared as an `Array(Int32|Float64)`, you can't add a string to it. So what if you wanted to define an array whose values could be either a number or some text, but you only have some numbers to put in the array literal? You have two options:

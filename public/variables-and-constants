@@ -27,7 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>To store a value for later, simply assign it to a name with the equals operator</p>
+            <p>To store a value for later, simply assign it to a name with the equals
+operator</p>
 
           </td>
           <td class="code leading">
@@ -39,7 +40,8 @@
         
         <tr>
           <td class="docs">
-            <p>You can specify the type of a value after a space-separated colon and before the assignment operator</p>
+            <p>You can specify the type of a value after a space-separated colon and type
+name before the assignment operator</p>
 
           </td>
           <td class="code leading">
@@ -51,7 +53,8 @@
         
         <tr>
           <td class="docs">
-            <p>If the name of a value starts with a capital letter, that name represents a constant which can't be reassigned</p>
+            <p>If the name of a value starts with a capital letter, that name represents a
+constant which can't be reassigned</p>
 
           </td>
           <td class="code leading">
@@ -63,7 +66,8 @@
         
         <tr>
           <td class="docs">
-            <p>By convention, all variables are in lower_snake_case, constants are in UPPER_SNAKE_CASE, while type names use PascalCase</p>
+            <p>By convention, all variables are in lower_snake_case, constants are in
+UPPER_SNAKE_CASE, while type names use PascalCase</p>
 
           </td>
           <td class="code empty">
@@ -74,7 +78,7 @@
       </table>
       
       <a href="https://carc.in/#/r/8cli" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">

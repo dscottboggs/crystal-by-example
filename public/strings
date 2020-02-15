@@ -39,7 +39,7 @@
         
         <tr>
           <td class="docs">
-            <p>They can be added together with other strings</p>
+            <p>They can be concatenated with other strings using the plus operator</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +112,8 @@
         
       </table>
       
-      <a href="https://carc.in/#/r/8clh" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdq" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">

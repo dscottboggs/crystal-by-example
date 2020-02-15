@@ -108,7 +108,7 @@
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="si">{%</span> <span class="n">skip</span> <span class="si">%}</span>
+           <div class="highlight"><pre><span></span><span class="si">{%</span> <span class="n">skip_file</span> <span class="si">%}</span>
 <span class="n">greeting</span> <span class="ss">for</span><span class="p">:</span> <span class="mi">123456</span>
 </pre></div>
 
@@ -127,8 +127,8 @@
         
       </table>
       
-      <a href="https://carc.in/#/r/8cmp" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdg" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -159,7 +159,7 @@ end
 ');
           codeLines.push('puts greeting for: "Arnold"
 ');
-          codeLines.push('{% skip %}
+          codeLines.push('{% skip_file %}
 greeting for: 123456
 ');
           codeLines.push('

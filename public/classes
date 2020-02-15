@@ -32,7 +32,7 @@ like a shell script. While you can write Crystal like this, for anything more
 than the smallest weekend project or the most basic educational excercises, you'll
 want to split your code up into a more well-organized structure. Crystal offers
 3 ways to namespace your code -- Classes, Structs and Modules. We'll go over Classes
-and Modules now, but Structs can wait til later.</p>
+and Modules now, but Structs can wait until later.</p>
 
           </td>
           <td class="code empty leading">
@@ -55,7 +55,7 @@ and Modules now, but Structs can wait til later.</p>
         
         <tr>
           <td class="docs">
-            <p>You create an instance of a class by invoking new on that class. Here, person is an instance of Person.</p>
+            <p>You create an instance of a class by calling the <code>new</code> method on that class. Here, person is an instance of Person.</p>
 
           </td>
           <td class="code leading">
@@ -158,7 +158,7 @@ the same name to that value</p>
       </table>
       
       <a href="https://carc.in/#/r/8dqy" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">

@@ -3,13 +3,13 @@
 # than the smallest weekend project or the most basic educational excercises, you'll
 # want to split your code up into a more well-organized structure. Crystal offers
 # 3 ways to namespace your code -- Classes, Structs and Modules. We'll go over Classes
-# and Modules now, but Structs can wait til later.
+# and Modules now, but Structs can wait until later.
 
 # A class is a blueprint from which individual objects are created. As an example, consider a Person class. You declare a class like this:
 class Person
 end
 
-# You create an instance of a class by invoking new on that class. Here, person is an instance of Person.
+# You create an instance of a class by calling the `new` method on that class. Here, person is an instance of Person.
 person = Person.new
 
 # We can't do much with person, so let's add some concepts to it. An object is a collection

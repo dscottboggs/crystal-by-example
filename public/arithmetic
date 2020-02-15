@@ -27,8 +27,17 @@
         
         <tr>
           <td class="docs">
-            <p>Crystal has the full range of numeric types, which respond to mathematical operators as expected.
-Integers</p>
+            <p>Crystal has the full range of numeric types, which respond to mathematical operators as expected.</p>
+
+          </td>
+          <td class="code empty leading">
+           
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Integers</p>
 
           </td>
           <td class="code leading">
@@ -160,8 +169,8 @@ Integers</p>
         
       </table>
       
-      <a href="https://carc.in/#/r/8clk" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdt" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -174,7 +183,9 @@ Integers</p>
     </div>
     <script>
       var codeLines = [];
-                codeLines.push('puts 2 + 2
+                codeLines.push('
+');
+          codeLines.push('puts 2 + 2
 ');
           codeLines.push('puts 1_f32 / 4
 ');

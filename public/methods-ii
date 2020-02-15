@@ -94,11 +94,22 @@
         
         <tr>
           <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="n">bob</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
             <p>Once a method is <code>def</code>ined, it can be invoked (or &quot;called&quot;) with...</p>
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span>  <span class="n">bob</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span>
+           <div class="highlight"><pre><span></span>  <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span><span class="p">()</span>
 </pre></div>
 
           </td>
@@ -111,17 +122,6 @@
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span>  <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-           <div class="highlight"><pre><span></span>  <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span>
   <span class="nb">puts</span> <span class="n">bob</span><span class="o">.</span><span class="n">age</span>
 </pre></div>
 
@@ -130,7 +130,7 @@
         
         <tr>
           <td class="docs">
-            <p>lets make bob an adult.</p>
+            <p>lets make Bob an adult.</p>
 
           </td>
           <td class="code leading">
@@ -252,8 +252,8 @@ as well as to make explicit a call to another method on the enclosing class.</p>
         
       </table>
       
-      <a href="https://carc.in/#/r/8dqz" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      <a href="https://carc.in/#/r/8kdv" target="blank">
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -286,7 +286,7 @@ as well as to make explicit a call to another method on the enclosing class.</p>
 ');
           codeLines.push('  bob = Person.new "Bob", "Smith"
 ');
-          codeLines.push('  bob.have_birthday
+          codeLines.push('  bob.have_birthday()
 ');
           codeLines.push('  bob.have_birthday
   puts bob.age

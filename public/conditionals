@@ -73,11 +73,26 @@
         
         <tr>
           <td class="docs">
-            <p>branch expressions can also be put after a one-line expression</p>
+            <p>branch expressions can also be put after a one-line expression...</p>
 
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="s2">&quot;8 is divisible by 4&quot;</span> <span class="k">if</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...which is the same as putting that one line into a conditional block. In
+fact, these two examples compile exactly the same.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">&quot;8 is divisible 4&quot;</span>
+<span class="k">end</span>
 </pre></div>
 
           </td>
@@ -90,12 +105,7 @@
           </td>
           <td class="code leading">
            <div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
-  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;is negative&quot;</span>
-<span class="k">elsif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span>
-  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;has 1 digit&quot;</span>
-<span class="k">else</span>
-  <span class="nb">puts</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;has multiple digits&quot;</span>
-<span class="k">end</span>
+  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2"> is negative&quot;</span>
 </pre></div>
 
           </td>
@@ -103,18 +113,24 @@
         
         <tr>
           <td class="docs">
-            <p>Note the use of the elsif keyword for handling more than 2 cases.</p>
+            <p>Note the use of the <code>elsif</code> keyword for handling more than 2 cases.</p>
 
           </td>
-          <td class="code empty">
-           
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="k">elsif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2"> has 1 digit&quot;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2"> has multiple digits&quot;</span>
+<span class="k">end</span>
+</pre></div>
+
           </td>
         </tr>
         
       </table>
       
       <a href="https://carc.in/#/r/8clj" target="blank">
-        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+        <img title="Run code" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -145,15 +161,18 @@ end
 ');
           codeLines.push('puts "8 is divisible by 4" if 8 % 4 == 0
 ');
-          codeLines.push('if (num = 9) < 0
-  puts num, "is negative"
-elsif num < 10
-  puts num, "has 1 digit"
-else
-  puts num, "has multiple digits"
+          codeLines.push('if 8 % 4 == 0
+  puts "8 is divisible 4"
 end
 ');
-          codeLines.push('
+          codeLines.push('if (num = 9) < 0
+  puts "#{num} is negative"
+');
+          codeLines.push('elsif num < 10
+  puts "#{num} has 1 digit"
+else
+  puts "#{num} has multiple digits"
+end
 ');
 
     </script>

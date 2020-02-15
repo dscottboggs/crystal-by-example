@@ -22,7 +22,7 @@ end
 puts greeting for: "Arnold"
 
 # This code would not compile due to the type restriction.
-{% skip %}
+{% skip_file %}
 greeting for: 123456
 
 # Please note that later definitions of a method override previous definitions: only the last `def greeting` counts.
