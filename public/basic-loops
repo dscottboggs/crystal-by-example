@@ -14,7 +14,7 @@
           
           
           if (e.key == "ArrowRight") {
-            window.location.href = 'blocks';
+            window.location.href = 'methods-i';
           }
           
       }
@@ -160,11 +160,11 @@
       </table>
       
       <a href="https://carc.in/#/r/8cmr" target="blank">
-        <img title="Run code" src="crystal_icon.svg" class="run" />
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
-        Next example: <a href="blocks">Blocks</a>.
+        Next example: <a href="methods-i">Methods I</a>.
       </p>
       
       <p class="footer">

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Arrays</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'methods-ii';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'types';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="arrays">
+      <h2><a href="index.html">Crystal by Example</a>: Arrays</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Just about every modern programming language has some sort of construct for storing a list, or <em>array</em>, of data.
+In crystal, this usually takes the form of the fixed-size <code>Array</code> generic type. A <em>generic</em> type is a type that can work with a bunch of different types of data, as long as that data implements a certain interface.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">some_array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">array_of_strings</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;of&quot;</span><span class="p">,</span> <span class="s2">&quot;strings&quot;</span><span class="o">]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Sometimes, we want to specify the type of an array</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="p">:</span> <span class="nb">Array</span><span class="p">(</span><span class="nb">Array</span><span class="p">(</span><span class="n">Floa64</span><span class="p">))</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="nb">Array</span><span class="p">(</span><span class="n">Floa64</span><span class="p">))</span><span class="o">.</span><span class="n">new</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>you can also specify the type of an array using the <code>of</code> keyword. This list is an Array(Number) which means it is allowed to store any number.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="k">of</span> <span class="nb">Number</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>If we had just specified the array literal, we could not append this float value.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">&lt;&lt;</span> <span class="mf">3.5</span>
+<span class="nb">puts</span> <span class="n">numbers</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The <code>of Type</code> notation is <em>required</em> when assigning an empty list.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span> <span class="o">[]</span> <span class="k">of</span> <span class="nb">Nil</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>arrays can be added together...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...multiplied...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">]</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...subtracted from each other...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">-</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>...and much more</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">&amp;</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">]</span>
+<span class="n">args</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;file.txt&quot;</span><span class="o">]</span>
+<span class="k">while</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">shift?</span>
+  <span class="nb">puts</span> <span class="n">arg</span>
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">uniq</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Collections in Crystal in general can be composed of multiple types, stored in a wrapper called a type <em>union</em>. When dealing with literals, like this, that's very straightforward.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>When creating a container and then adding values to it of a different type, or when accessing values of a container whose members are a type union, this can be a little more complicated. More on that in the next section.</p>
+
+          </td>
+          <td class="code empty">
+           
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8dr1" target="blank">
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="types">Types</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/arrays">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('some_array = [1, 2, 3]
+array_of_strings = ["a", "list", "of", "strings"]
+');
+          codeLines.push('matrix : Array(Array(Floa64)) = Array(Array(Floa64)).new
+');
+          codeLines.push('numbers = [1, 2, 3, 4] of Number
+');
+          codeLines.push('numbers << 3.5
+puts numbers
+');
+          codeLines.push('empty = [] of Nil
+');
+          codeLines.push('puts [1, 2] + [3, 4]
+');
+          codeLines.push('puts [5, 6] * 3
+');
+          codeLines.push('puts [1, 2, 3, 4] - [2, 3]
+');
+          codeLines.push('puts [1, 2, 3, 4] & [3, 4, 5, 6]
+args = ["-a", "-f", "file.txt"]
+while arg = args.shift?
+  puts arg
+end
+puts [1, 1, 2, 3, 3, 3, 5].uniq
+');
+          codeLines.push('puts typeof([1, 2.0, "three", '4'])
+');
+          codeLines.push('
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

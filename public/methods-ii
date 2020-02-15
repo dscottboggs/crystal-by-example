@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Methods II</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'classes';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+            window.location.href = 'arrays';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="methods-ii">
+      <h2><a href="index.html">Crystal by Example</a>: Methods II</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Methods can be attached to Classes. Lets take our <code>Person</code> from the <code>Class</code>es example</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span>
+  <span class="bp">getter</span> <span class="n">first_name</span> <span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">last_name</span> <span class="p">:</span> <span class="nb">String</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>methods can be protected or private</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">protected</span> <span class="bp">setter</span> <span class="n">last_name</span>
+  <span class="bp">getter</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@first_name</span><span class="p">,</span> <span class="vi">@last_name</span><span class="p">)</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>and add a method for updating their age</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="nf">have_birthday</span> <span class="p">:</span> <span class="nb">Nil</span>
+    <span class="nb">puts</span> <span class="s2">&quot;Happy birthday, </span><span class="si">#{</span><span class="vi">@first_name</span><span class="si">}</span><span class="s2">!&quot;</span>
+    <span class="vi">@age</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>As well as a simple way to get their full name.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="nf">name</span>
+    <span class="n">first_name</span> <span class="o">+</span>   <span class="o">+</span> <span class="n">last_name</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Once a method is <code>def</code>ined, it can be invoked (or &quot;called&quot;) with...</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="n">bob</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>or without parentheses</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span>
+  <span class="nb">puts</span> <span class="n">bob</span><span class="o">.</span><span class="n">age</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>lets make bob an adult.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="mi">20</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">bob</span><span class="o">.</span><span class="n">have_birthday</span> <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Instance variables can be declared at any part of the top-level of a class.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="vi">@married</span> <span class="o">=</span> <span class="kc">false</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Methods may end in a question-mark. This is merely a convention, and it is said that the method &quot;asks&quot;. The same concept applies to the exclamation mark <code>!</code>, in which case the method &quot;shouts&quot;.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="nf">married?</span>
+    <span class="vi">@married</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A method with a name ending in the <code>=</code> sign is a setter method.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">protected</span> <span class="k">def</span> <span class="nf">married</span><span class="o">=</span><span class="p">(</span><span class="vi">@married</span><span class="p">)</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The above method/instance variable combination may be shortened to only this. It is idiomatic to prefer this version.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="bp">property</span><span class="p">?</span> <span class="n">married</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="k">protected</span> <span class="bp">setter</span> <span class="n">married</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The <code>self</code> keyword can be used to represent the enclosing type in type signiatures,
+as well as to make explicit a call to another method on the enclosing class.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="nf">marry</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span> <span class="kp">self</span><span class="p">)</span> <span class="p">:</span> <span class="kp">self</span>
+    <span class="kp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">+=</span> <span class="o">-</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">last_name</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note, however, that using self to call methods on the enclosing type is optional unless the name conflicts with a top-level method name, and even then, only if the types match.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>    <span class="n">other</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span> <span class="o">+</span> <span class="o">-</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">last_name</span>
+    <span class="vi">@married</span> <span class="o">=</span> <span class="kc">true</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note the use of the protected setter method</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span>    <span class="n">other</span><span class="o">.</span><span class="n">married</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="kp">self</span>
+  <span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span>  <span class="n">alice</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">new</span> <span class="ss">last_name</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span><span class="p">,</span> <span class="ss">first_name</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span>
+  <span class="mi">22</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+    <span class="n">alice</span><span class="o">.</span><span class="n">have_birthday</span>
+  <span class="k">end</span>
+  <span class="n">bob</span><span class="o">.</span><span class="n">marry</span> <span class="n">alice</span>
+  <span class="nb">puts</span> <span class="n">bob</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">bob</span><span class="o">.</span><span class="n">married?</span>
+<span class="k">end</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8dqz" target="blank">
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="next">
+        Next example: <a href="arrays">Arrays</a>.
+      </p>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/methods-ii">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('class Person
+  getter first_name : String, last_name : String
+');
+          codeLines.push('  protected setter last_name
+  getter age = 0
+');
+          codeLines.push('  def initialize(@first_name, @last_name)
+  end
+');
+          codeLines.push('  def have_birthday : Nil
+    puts "Happy birthday, #{@first_name}!"
+    @age += 1
+  end
+');
+          codeLines.push('  def name
+    first_name + ' ' + last_name
+  end
+');
+          codeLines.push('  bob = Person.new "Bob", "Smith"
+');
+          codeLines.push('  bob.have_birthday
+');
+          codeLines.push('  bob.have_birthday
+  puts bob.age
+');
+          codeLines.push('  20.times { bob.have_birthday }
+');
+          codeLines.push('  @married = false
+');
+          codeLines.push('  def married?
+    @married
+  end
+');
+          codeLines.push('  protected def married=(@married)
+  end
+');
+          codeLines.push('  property? married = false
+  protected setter married
+');
+          codeLines.push('  def marry(other : self) : self
+    self.last_name += '-' + other.last_name
+');
+          codeLines.push('    other.last_name = last_name + '-' + other.last_name
+    @married = true
+');
+          codeLines.push('    other.married = true
+    self
+  end
+');
+          codeLines.push('  alice = Person.new last_name: "Jones", first_name: "Alice"
+  22.times do
+    alice.have_birthday
+  end
+  bob.marry alice
+  puts bob.name if bob.married?
+end
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

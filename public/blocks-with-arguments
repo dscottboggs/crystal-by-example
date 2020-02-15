@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+            window.location.href = 'classes';
+          }
+          
       }
   </script>
   <body>
@@ -175,8 +179,12 @@
       </table>
       
       <a href="https://carc.in/#/r/8cmt" target="blank">
-        <img title="Run code" src="crystal_icon.svg" class="run" />
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
       </a>
+      
+      <p class="next">
+        Next example: <a href="classes">Classes</a>.
+      </p>
       
       <p class="footer">
         by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/blocks-with-arguments">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>

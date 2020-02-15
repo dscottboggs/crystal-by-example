@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal by Example: Types</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+            window.location.href = 'arrays';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="types">
+      <h2><a href="index.html">Crystal by Example</a>: Types</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>We've seen that variable assignment is as simple as giving a name to a piece of data</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">five</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;crystal&quot;</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.0</span><span class="o">]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>This <em>looks</em> a lot like the sort of code we might write in a dynamic language like Ruby, Python, or JavaScript. However, looks can be decieving</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="k">typeof</span><span class="p">(</span><span class="n">five</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Types aren't dynamic in Crystal. The exact type of every chunk of data used by your application <strong>MUST</strong> be known at compile-time.
+Often, as in the case of our <code>numbers</code> example, this doesn't matter.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="n">numbers</span><span class="o">.</span><span class="n">sum</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Since all of the types in the numbers array (<code>Int32</code> and <code>Float64</code>) can be added together with the <code>+</code> operator, the <code>sum</code> method can be used without any shenanigans. There are restrictions on this, however, that set Crystal apart as a safer and more performant alternative to its more dynamic cousins
+Not only will this example fail, you cannot begin to run your program if theres any chance this could happen</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;not a number&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Since numbers is an array which was originally declared as an <code>Array(Int32|Float64)</code>, you can't add a string to it. So what if you wanted to define an array whose values could be either a number or some text, but you only have some numbers to put in the array literal? You have two options:</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">numbers_and_text</span> <span class="p">:</span> <span class="nb">Array</span><span class="p">(</span><span class="nb">Int32</span> <span class="o">|</span> <span class="nb">Float64</span> <span class="o">|</span> <span class="nb">String</span><span class="p">)</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.0</span><span class="o">]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>or alternatively</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">text_and_numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.0</span><span class="o">]</span> <span class="k">of</span> <span class="nb">Int32</span> <span class="o">|</span> <span class="nb">Float64</span> <span class="o">|</span> <span class="nb">String</span>
+<span class="n">text_and_numbers</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;4&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>This means that when assigning a value to an empty array, its type must be explicitly specified using one of the above syntaxes</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">empty_for_now</span> <span class="o">=</span> <span class="o">[]</span> <span class="k">of</span> <span class="nb">Int32</span> <span class="o">|</span> <span class="nb">Float64</span> <span class="o">|</span> <span class="nb">String</span>
+<span class="n">empty_for_now</span> <span class="o">&lt;&lt;</span> <span class="mf">1.234</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>In order to work with types which can't work together for a given purpose, you have to convert them to the expected type. There are two ways you may want to &quot;sum&quot; the <code>text_and_numbers</code> array.
+The first way is to convert the string <code>&quot;4&quot;</code> to an integer, and added all the values as if they were numeric. This would raise an exception at runtime if, for example, &quot;five&quot; were in the mix, but don't worry, it's not the only way to do this. One step at a time.</p>
+
+          </td>
+          <td class="code leading">
+           <div class="highlight"><pre><span></span><span class="n">text_and_numbers</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">to_i</span> <span class="p">}</span><span class="o">.</span><span class="n">sum</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Alternately, we could convert all the numbers to strings and concatenate those with <code>String</code>'s <code>+</code> operator overload.</p>
+
+          </td>
+          <td class="code">
+           <div class="highlight"><pre><span></span><span class="n">text_and_numbers</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span><span class="o">.</span><span class="n">sum</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <a href="https://carc.in/#/r/8dr0" target="blank">
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
+      </a>
+      
+      <p class="footer">
+        by the Crystal Community | based on <a href="https://gobyexample.com/">Go By Example</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/examples/types">source</a> | <a href="https://github.com/dscottboggs/crystal-by-example/blob/master/LICENSE">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+                codeLines.push('five = 5
+word = "crystal"
+numbers = [1, 2, 3, 4.0]
+');
+          codeLines.push('puts typeof(five, word, numbers)
+');
+          codeLines.push('puts numbers.sum
+');
+          codeLines.push('numbers << "not a number"
+');
+          codeLines.push('numbers_and_text : Array(Int32 | Float64 | String) = [1, 2, 3.0]
+');
+          codeLines.push('text_and_numbers = [1, 2, 3.0] of Int32 | Float64 | String
+text_and_numbers << "4"
+');
+          codeLines.push('empty_for_now = [] of Int32 | Float64 | String
+empty_for_now << 1.234
+');
+          codeLines.push('text_and_numbers.map { |n| n.to_i }.sum
+');
+          codeLines.push('text_and_numbers.map { |n| n.to_s }.sum
+');
+
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

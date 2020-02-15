@@ -9,7 +9,7 @@
       onkeydown = (e) => {
           
           if (e.key == "ArrowLeft") {
-            window.location.href = 'basic-loops';
+            window.location.href = 'methods-i';
           }
           
           
@@ -223,7 +223,7 @@ this...</p>
       </table>
       
       <a href="https://carc.in/#/r/8cms" target="blank">
-        <img title="Run code" src="crystal_icon.svg" class="run" />
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">

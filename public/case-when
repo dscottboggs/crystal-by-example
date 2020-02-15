@@ -9,7 +9,7 @@
       onkeydown = (e) => {
           
           if (e.key == "ArrowLeft") {
-            window.location.href = 'methods';
+            window.location.href = 'conditionals';
           }
           
           
@@ -74,7 +74,7 @@
 
           </td>
           <td class="code leading">
-           <div class="highlight"><pre><span></span><span class="nb">puts</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="o">..</span><span class="mi">3</span>
+           <div class="highlight"><pre><span></span><span class="bp">pp</span><span class="o">!</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -106,7 +106,7 @@
       </table>
       
       <a href="https://carc.in/#/r/8cmo" target="blank">
-        <img title="Run code" src="crystal_icon.svg" class="run" />
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
@@ -132,7 +132,7 @@ when 3, 5, 7
 else           puts "two-digit number"
 end
 ');
-          codeLines.push('puts 2 === 1..3
+          codeLines.push('pp! (1..3 === 2)
 ');
           codeLines.push('require "http"
 http_response = HTTP::Client::Response.new rand 200...600

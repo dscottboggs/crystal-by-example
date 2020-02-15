@@ -26,3 +26,8 @@ while arg = args.shift?
   puts arg
 end
 puts [1, 1, 2, 3, 3, 3, 5].uniq
+
+# Collections in Crystal in general can be composed of multiple types, stored in a wrapper called a type _union_. When dealing with literals, like this, that's very straightforward.
+puts typeof([1, 2.0, "three", '4'])
+
+# When creating a container and then adding values to it of a different type, or when accessing values of a container whose members are a type union, this can be a little more complicated. More on that in the next section.

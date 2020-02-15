@@ -14,7 +14,7 @@
           
           
           if (e.key == "ArrowRight") {
-            window.location.href = 'methods';
+            window.location.href = 'case-when';
           }
           
       }
@@ -114,11 +114,11 @@
       </table>
       
       <a href="https://carc.in/#/r/8clj" target="blank">
-        <img title="Run code" src="crystal_icon.svg" class="run" />
+        <img title="Run in the playground" src="crystal_icon.svg" class="run" />
       </a>
       
       <p class="next">
-        Next example: <a href="methods">Methods</a>.
+        Next example: <a href="case-when">Case-When</a>.
       </p>
       
       <p class="footer">
